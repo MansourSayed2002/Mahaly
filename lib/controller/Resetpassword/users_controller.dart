@@ -24,7 +24,7 @@ class Userscontroller extends AbsUserscontroller {
 
   @override
   gotoverifycode() {
-    Get.to(() => const VerifyCode_view(),
+    Get.to(() => const VerifyCodeview(),
         transition: Transition.fade,
         arguments: {
           "username": username,

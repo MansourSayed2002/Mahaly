@@ -29,69 +29,80 @@ class Signup_view extends StatelessWidget {
             ),
             Custom_textFormGlobal(
               controllerForm: controller.name,
-              label: "Name",
+              label: "11".tr,
               suffixicon: Icon(
                 Icons.abc_sharp,
                 size: 18.0.r,
                 color: ColorApp.thierd,
               ),
+              obscureText: false,
               validator: (val) {
-                return textformvalidation(100, 3, 'name', val!);
+                return textformvalidation(3, 100, 'name', val!);
               },
             ),
             Custom_textFormGlobal(
               controllerForm: controller.username,
-              label: "User Name",
+              label: "12".tr,
               suffixicon: Icon(
                 Icons.person_2_outlined,
                 color: ColorApp.thierd,
                 size: 18.0.r,
               ),
+              obscureText: false,
               validator: (val) {
-                return textformvalidation(100, 3, 'username', val!);
+                return textformvalidation(3, 100, 'username', val!);
               },
             ),
             Custom_textFormGlobal(
               controllerForm: controller.egoogle,
-              label: "Email",
+              label: "13".tr,
               hint: "Enter Email Google",
               suffixicon: Icon(
                 Icons.email_outlined,
                 color: ColorApp.thierd,
                 size: 18.0.r,
               ),
+              obscureText: false,
               validator: (val) {
-                return textformvalidation(100, 3, 'emailgoogle', val!);
+                return textformvalidation(3, 100, 'emailgoogle', val!);
               },
             ),
             Custom_textFormGlobal(
               controllerForm: controller.phone,
-              label: "Phone",
+              label: "14".tr,
               suffixicon: Icon(
                 Icons.phone,
                 color: ColorApp.thierd,
                 size: 18.0.r,
               ),
+              obscureText: false,
               validator: (val) {
-                return textformvalidation(100, 3, 'phone', val!);
+                return textformvalidation(3, 100, 'phone', val!);
               },
             ),
-            Custom_textFormGlobal(
-              controllerForm: controller.password,
-              label: "Password",
-              suffixicon: InkWell(
-                  onTap: () {},
-                  child: Icon(
-                    Icons.remove_red_eye_outlined,
-                    color: ColorApp.thierd,
-                    size: 18.0.r,
-                  )),
-              validator: (val) {
-                return textformvalidation(100, 3, 'password', val!);
-              },
-            ),
+            GetBuilder<Signup_controller>(builder: (context) {
+              return Custom_textFormGlobal(
+                controllerForm: controller.password,
+                label: "22".tr,
+                suffixicon: InkWell(
+                    onTap: () {
+                      controller.changeshowpassword();
+                    },
+                    child: Icon(
+                      controller.showpassword == false
+                          ? Icons.visibility
+                          : Icons.visibility_off,
+                      color: ColorApp.thierd,
+                      size: 18.0.r,
+                    )),
+                obscureText: controller.showpassword,
+                validator: (val) {
+                  return textformvalidation(3, 100, 'password', val!);
+                },
+              );
+            }),
             Custom_buttomPublic(
-              title: "Create",
+              title: "23".tr,
               color: ColorApp.second,
               ontap: () {
                 controller.checkvalidate();

@@ -6,7 +6,7 @@ import 'package:mahaly/core/function/handlingData.dart';
 import 'package:mahaly/data/Model/api_error.dart';
 import 'package:mahaly/data/Source/remote/signup/signup.dart';
 import 'package:mahaly/view/screen/Auth/Register_view.dart';
-import 'package:mahaly/view/screen/Forgetpassword/verifycode_view.dart';
+import 'package:mahaly/view/screen/Auth/veifycode_signup_view.dart';
 
 abstract class Abst_Signup_controller extends GetxController {
   late TextEditingController name;
@@ -15,9 +15,11 @@ abstract class Abst_Signup_controller extends GetxController {
   late TextEditingController phone;
   late TextEditingController password;
   late GlobalKey<FormState> formstate;
+  bool showpassword = false;
   gotoregister();
   createemail();
   checkvalidate();
+  changeshowpassword();
 }
 
 class Signup_controller extends Abst_Signup_controller {
@@ -51,7 +53,7 @@ class Signup_controller extends Abst_Signup_controller {
         name.text, username.text, egoogle.text, phone.text, password.text);
     statusRequest = handlingData(response);
     if (statusRequest == StatusRequest.success) {
-      Get.to(() => const VerifyCode_view(),
+      Get.to(() => const VerifyCodeSignupview(),
           duration: const Duration(milliseconds: 300),
           transition: Transition.fade,
           arguments: {
@@ -74,5 +76,11 @@ class Signup_controller extends Abst_Signup_controller {
     } else {
       print('No Validation');
     }
+  }
+
+  @override
+  changeshowpassword() {
+    showpassword == false ? showpassword = true : showpassword = false;
+    update();
   }
 }

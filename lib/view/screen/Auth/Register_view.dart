@@ -38,24 +38,32 @@ class Register_view extends StatelessWidget {
                   color: ColorApp.thierd,
                   size: 18.0.r,
                 ),
+                obscureText: false,
                 validator: (val) {
                   return textformvalidation(3, 100, 'username', val!);
                 },
               ),
-              Custom_textFormGlobal(
-                controllerForm: controller.password,
-                label: "Password",
-                suffixicon: InkWell(
-                    onTap: () {},
-                    child: Icon(
-                      Icons.remove_red_eye_outlined,
-                      color: ColorApp.thierd,
-                      size: 18.0.r,
-                    )),
-                validator: (val) {
-                  return textformvalidation(3, 100, 'password', val!);
-                },
-              ),
+              GetBuilder<Register_Controller>(builder: (context) {
+                return Custom_textFormGlobal(
+                  controllerForm: controller.password,
+                  label: "Password",
+                  suffixicon: InkWell(
+                      onTap: () {
+                        controller.changeshowpassword();
+                      },
+                      child: Icon(
+                        controller.showpassword == false
+                            ? Icons.visibility
+                            : Icons.visibility_off,
+                        color: ColorApp.thierd,
+                        size: 18.0.r,
+                      )),
+                  obscureText: controller.showpassword,
+                  validator: (val) {
+                    return textformvalidation(3, 100, 'password', val!);
+                  },
+                );
+              }),
               Custom_bottonINKGlobal(
                 mainalighnment: MainAxisAlignment.center,
                 ontap: () {

@@ -10,12 +10,14 @@ class Custom_textFormGlobal extends StatelessWidget {
     this.controllerForm,
     this.suffixicon,
     this.validator,
+    required this.obscureText,
   });
   final String label;
   final String? hint;
   final TextEditingController? controllerForm;
   final Widget? suffixicon;
   final String? Function(String?)? validator;
+  final bool obscureText;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -28,6 +30,7 @@ class Custom_textFormGlobal extends StatelessWidget {
           fontSize: 20.0.sp,
         ),
         cursorColor: ColorApp.thierd,
+        obscureText: obscureText,
         decoration: InputDecoration(
             fillColor: ColorApp.thierd,
             floatingLabelBehavior: FloatingLabelBehavior.always,

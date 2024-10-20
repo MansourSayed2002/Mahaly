@@ -11,6 +11,8 @@ class Mymiddleware extends GetMiddleware {
   RouteSettings? redirect(String? route) {
     if (myservice.sharedpre.getString('step') == '1') {
       return const RouteSettings(name: AppRouting.signup);
+    } else if (myservice.sharedpre.getString('step') == '2') {
+      return const RouteSettings(name: AppRouting.home);
     }
     return null;
   }

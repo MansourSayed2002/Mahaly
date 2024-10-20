@@ -16,6 +16,19 @@ class Mytranslation extends Translations {
           "8": "لا يمكن أن يكون الحقل فارغا",
           "9": "لا يمكن أن يكون الحقل أكبر من",
           "10": 'لا يمكن حقل يكون اصغر من ',
+          "11": "الاسم",
+          "12": "اسم المستخدم",
+          "13": "الايمال",
+          "14": "رقم الهاتف",
+          "15": "المحل",
+          "16": "تاريخ الانشاء",
+          "17": "مغلق",
+          "18": "مفتوح",
+          "19": " بامكانك الغاء تفعبل او تفعيله المحل في اردت ان تغلقه او فتحه",
+          "20": "تغير كلمه المرور",
+          "21": "تعديل",
+          "22": "كلمه المرور",
+          "23": "انشاء",
         },
         "en": {
           "1":
@@ -31,6 +44,20 @@ class Mytranslation extends Translations {
           "8": "The field cannot be empty ",
           "9": "The field cannot be greater than",
           "10": "The field cannot be smaller than",
+          "11": "Name",
+          "12": "Username",
+          "13": "Email",
+          "14": "Phone",
+          "15": "Store",
+          "16": "Date",
+          "17": "Closed",
+          "18": "Open",
+          "19":
+              "You can deactivate or activate the store if you want to close or open it",
+          "20": "Change Password",
+          "21": "Edit",
+          "22": "Password",
+          "23": "Create",
         }
       };
 }

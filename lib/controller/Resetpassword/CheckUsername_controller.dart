@@ -23,6 +23,7 @@ class CheckUsernamecontroller extends AbsCheckUsernamecontroller {
   void onInit() {
     egoogle = TextEditingController();
     formstate = GlobalKey<FormState>();
+    
     super.onInit();
   }
 

@@ -46,7 +46,7 @@ class CustomBody extends GetView<Userscontroller> {
                 index: index,
                 onTap: () {
                   controller.chooseusername(
-                      controller.data[index]['users_name'], index);
+                      controller.data[index]['users_username'], index);
                 },
               ),
             ),

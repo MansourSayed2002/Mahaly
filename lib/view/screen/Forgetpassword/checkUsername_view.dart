@@ -46,6 +46,7 @@ class CheckUsername_view extends StatelessWidget {
               hint: 'Enter Email Google',
               controllerForm: controller.egoogle,
               suffixicon: const Icon(Icons.email_outlined),
+              obscureText: false,
               validator: (val) {
                 return textformvalidation(3, 100, 'emailgoogle', val!);
               },

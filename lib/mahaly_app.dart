@@ -20,7 +20,7 @@ class Mahaly extends StatelessWidget {
             debugShowCheckedModeBanner: false,
             initialRoute: '/',
             translations: Mytranslation(),
-            // home: const CongratulationView(),
+            // home: const ProfileView(),
             locale: controller.language,
             getPages: getPages,
           );
