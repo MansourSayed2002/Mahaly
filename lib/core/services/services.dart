@@ -6,7 +6,6 @@ class Myservices extends GetxService {
 
   Future<Myservices> init() async {
     sharedpre = await SharedPreferences.getInstance();
-
     return this;
   }
 }

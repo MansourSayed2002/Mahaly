@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:mahaly/core/constant/Links/Links.dart';
 import 'package:mahaly/core/constant/theme/Color/ColorApp.dart';
 
 class CustomImageProfile extends StatelessWidget {
@@ -16,11 +17,12 @@ class CustomImageProfile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        image != null
+        image != 'none'
             ? CircleAvatar(
                 radius: 80.0.r,
                 backgroundColor: ColorApp.fourth,
-                backgroundImage: NetworkImage(image!))
+                backgroundImage:
+                    NetworkImage("${Applink.dirImageProfile}/$image"))
             : CircleAvatar(
                 radius: 80.0.r,
                 backgroundColor: ColorApp.fourth,
@@ -36,7 +38,7 @@ class CustomImageProfile extends StatelessWidget {
             onTap: ontapchangeimage,
             child: Icon(
               CupertinoIcons.pencil_circle_fill,
-              color: Colors.white,
+              color: Theme.of(context).iconTheme.color,
               size: 33.0.r,
             ),
           ),

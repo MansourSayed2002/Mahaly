@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:mahaly/core/constant/theme/Color/ColorApp.dart';
 import 'package:mahaly/core/function/change_widget_accordingto_lang.dart';
 
 class Buttonappbarback extends StatelessWidget {
@@ -13,7 +12,7 @@ class Buttonappbarback extends StatelessWidget {
     return IconButton(
       icon: Icon(
         changeWidgetaccordingtoLang(Icons.arrow_back, Icons.arrow_forward),
-        color: ColorApp.fourth,
+        color: Theme.of(context).iconTheme.color,
       ),
       onPressed: () {
         Get.back();

@@ -5,13 +5,12 @@ import 'package:mahaly/core/class/Crud/Crud.dart';
 import 'package:mahaly/core/class/sharedpre.dart';
 import 'package:mahaly/core/constant/StatusRequest/StatusRequest.dart';
 import 'package:mahaly/core/function/handlingData.dart';
-import 'package:mahaly/core/services/services.dart';
 import 'package:mahaly/data/Model/api_error.dart';
 import 'package:mahaly/data/Source/remote/register/register.dart';
 import 'package:mahaly/view/screen/Auth/SignUp_view.dart';
 import 'package:mahaly/view/screen/Auth/veifycode_signup_view.dart';
 import 'package:mahaly/view/screen/Forgetpassword/checkUsername_view.dart';
-import 'package:mahaly/view/screen/Home/Home_view.dart';
+import 'package:mahaly/view/screen/Home/Homescreen_view.dart';
 
 abstract class Abst_Register_Controller extends GetxController {
   late TextEditingController username;
@@ -20,13 +19,13 @@ abstract class Abst_Register_Controller extends GetxController {
   StatusRequest statusRequest = StatusRequest.none;
   late GlobalKey<FormState> formstate;
   Contregister contregister = Contregister(crud: Crud());
-  Myservices myservices = Get.find();
   gotosignup();
   gotoverifycode();
   gotoCheckUsername();
   gotohomepage();
   registeremail();
   changeshowpassword();
+  addInfoInLocalStorage(response);
 }
 
 class Register_Controller extends Abst_Register_Controller {
@@ -70,21 +69,12 @@ class Register_Controller extends Abst_Register_Controller {
     var response = await contregister.updateData(username.text, password.text);
     statusRequest = handlingData(response);
     if (statusRequest == StatusRequest.success) {
-      myservices.sharedpre.setString("step", "2");
-      Sharedpre.setString("user_id", response['data']['users_id'].toString());
-      Sharedpre.setString("user_name", response['data']['users_name']);
-      Sharedpre.setString("user_username", response['data']['users_username']);
-      Sharedpre.setString(
-          "store_active", response['data']['users_active_store'].toString());
-      Sharedpre.setString("user_phone", response['data']['users_phone']);
-      Sharedpre.setString("user_egoogle", response['data']['users_egoogle']);
-      Sharedpre.setString("user_image", response['data']['users_image']);
-      Sharedpre.setString("user_date", response['data']['users_timestamp']);
-
+      addInfoInLocalStorage(response);
       gotohomepage();
     } else {
       ApiError apiError = response;
       if (apiError.message == 'Please Approve Your Email') {
+        addInfoInLocalStorage(response);
         gotoverifycode();
       } else {
         Get.defaultDialog(
@@ -114,9 +104,31 @@ class Register_Controller extends Abst_Register_Controller {
   @override
   gotohomepage() {
     Get.offAll(
-      () => const Home_view(),
+      () => const HomeScreenView(),
       transition: Transition.rightToLeft,
       duration: const Duration(milliseconds: 300),
     );
+  }
+
+  @override
+  addInfoInLocalStorage(response) {
+    Sharedpre.setString("step", "2");
+    Sharedpre.setString("user_id", response['data']['users_id'].toString());
+    Sharedpre.setString("user_name", response['data']['users_name']);
+    Sharedpre.setString("user_username", response['data']['users_username']);
+    Sharedpre.setString(
+        "store_active", response['data']['users_active_store'].toString());
+    Sharedpre.setString("user_phone", response['data']['users_phone']);
+    Sharedpre.setString("user_egoogle", response['data']['users_egoogle']);
+    Sharedpre.setString("user_image", response['data']['users_image']);
+    Sharedpre.setString("user_date", response['data']['users_timestamp']);
+    Sharedpre.setString("store_name", response['data']['store_name']);
+    Sharedpre.setString(
+        "store_description", response['data']['store_description']);
+    Sharedpre.setString("store_image", response['data']['store_image']);
+    Sharedpre.setString("store_id", response['data']['store_id']);
+    Sharedpre.setString("store_active2", response['data']['store_active']);
+    Sharedpre.setString("store_date",
+        response['data']['store_timestamp'].toString().split(" ").first);
   }
 }

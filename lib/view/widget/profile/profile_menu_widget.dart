@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mahaly/core/constant/Textstyle/Textstyle.dart';
 import 'package:mahaly/core/constant/theme/Color/ColorApp.dart';
 
 class ProfileMenuWidget extends StatelessWidget {
@@ -22,7 +21,7 @@ class ProfileMenuWidget extends StatelessWidget {
       child: ListTile(
         title: Text(
           title,
-          style: Textstyledynamic.white20Bold,
+          style: Theme.of(context).textTheme.titleMedium,
         ),
         leading: Container(
             padding: EdgeInsets.all(10.0.r),
@@ -32,7 +31,7 @@ class ProfileMenuWidget extends StatelessWidget {
             ),
             child: Icon(
               iconDataleading,
-              color: ColorApp.second,
+              color: Theme.of(context).iconTheme.color,
             )),
         trailing: InkWell(
           onTap: ontap,
@@ -44,7 +43,7 @@ class ProfileMenuWidget extends StatelessWidget {
               ),
               child: Icon(
                 iconDatatrailing,
-                color: ColorApp.fourth.withOpacity(.2),
+                color: ColorApp.fourth.withOpacity(.4),
               )),
         ),
       ),

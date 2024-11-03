@@ -16,10 +16,10 @@ class EditInfoView extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         elevation: 0.0,
-        backgroundColor: ColorApp.primary,
+        backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
         leading: const Buttonappbarback(),
       ),
-      backgroundColor: ColorApp.primary,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       body: const CustomBody(),
     );
   }
@@ -35,28 +35,46 @@ class CustomBody extends GetView<EditInfoController> {
         Custom_textFormGlobal(
           label: '11'.tr,
           obscureText: false,
+          filled: true,
+          fillColor: Theme.of(context).cardColor,
           controllerForm: controller.name,
+          borderColor: Theme.of(context).iconTheme.color,
+          labelcolor: Theme.of(context).iconTheme.color,
         ),
         Custom_textFormGlobal(
           label: '12'.tr,
           obscureText: false,
+          filled: true,
+          fillColor: Theme.of(context).cardColor,
           controllerForm: controller.username,
+          borderColor: Theme.of(context).iconTheme.color,
+          labelcolor: Theme.of(context).iconTheme.color,
         ),
         Custom_textFormGlobal(
           label: '13'.tr,
           obscureText: false,
+          filled: true,
+          fillColor: Theme.of(context).cardColor,
           controllerForm: controller.egoogle,
+          borderColor: Theme.of(context).iconTheme.color,
+          labelcolor: Theme.of(context).iconTheme.color,
         ),
         Custom_textFormGlobal(
           label: '14'.tr,
           obscureText: false,
+          filled: true,
+          fillColor: Theme.of(context).cardColor,
           controllerForm: controller.phone,
+          borderColor: Theme.of(context).iconTheme.color,
+          labelcolor: Theme.of(context).iconTheme.color,
         ),
         Custom_buttomPublic(
           title: '21'.tr,
           colortext: ColorApp.thierd,
-          color: ColorApp.second,
-          ontap: () {},
+          color: Theme.of(context).iconTheme.color!,
+          ontap: () {
+            controller.updateInfoProfile();
+          },
         ),
       ],
     );

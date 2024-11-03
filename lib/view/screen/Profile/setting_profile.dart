@@ -1,8 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:mahaly/core/constant/Textstyle/Textstyle.dart';
+import 'package:mahaly/controller/Profile/setting_profile.dart';
 import 'package:mahaly/core/constant/theme/Color/ColorApp.dart';
 import 'package:mahaly/core/shared/button_appbar_back.dart';
 
@@ -11,19 +10,20 @@ class SettingProfileView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Get.put(SettingProfileController());
     return Scaffold(
       appBar: AppBar(
         elevation: 0.0,
-        backgroundColor: ColorApp.primary,
+        backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
         leading: const Buttonappbarback(),
       ),
-      backgroundColor: ColorApp.primary,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       body: const CustomBody(),
     );
   }
 }
 
-class CustomBody extends StatelessWidget {
+class CustomBody extends GetView<SettingProfileController> {
   const CustomBody({super.key});
 
   @override
@@ -34,26 +34,32 @@ class CustomBody extends StatelessWidget {
         ListTile(
           title: Text(
             "15".tr,
-            style: Textstyledynamic.white20Bold,
+            style: Theme.of(context).textTheme.titleMedium,
           ),
           subtitle: Text(
             '19'.tr,
-            style: Textstyledynamic.white16Blod,
+            style: Theme.of(context).textTheme.bodyMedium,
           ),
-          trailing: Switch(
-            value: true,
-            onChanged: (val) {},
-            activeColor: ColorApp.sixth,
-          ),
+          trailing: GetBuilder<SettingProfileController>(builder: (controller) {
+            return Switch(
+              value: controller.storestaus(),
+              onChanged: (val) {
+                controller.changeStoreStatus();
+              },
+              activeColor: Theme.of(context).iconTheme.color,
+            );
+          }),
         ),
         Padding(
           padding: EdgeInsets.all(10.0.r),
           child: InkWell(
-              onTap: () {},
+              onTap: () {
+                controller.gotochangepassword();
+              },
               child: ListTile(
                 title: Text(
                   "20".tr,
-                  style: Textstyledynamic.white20Bold,
+                  style: Theme.of(context).textTheme.labelMedium,
                 ),
                 trailing: Icon(
                   Icons.key_outlined,

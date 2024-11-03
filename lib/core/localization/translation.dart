@@ -29,6 +29,13 @@ class Mytranslation extends Translations {
           "21": "تعديل",
           "22": "كلمه المرور",
           "23": "انشاء",
+          "24": "الرئيسيه",
+          "25": "محل",
+          "26": "الاعدادات",
+          "27": "حسابي",
+          "28": "الرسائل",
+          "29": "الوصف",
+          "30": "التقيم",
         },
         "en": {
           "1":
@@ -58,6 +65,13 @@ class Mytranslation extends Translations {
           "21": "Edit",
           "22": "Password",
           "23": "Create",
+          "24": "Home",
+          "25": "Store",
+          "26": "Setting",
+          "27": "Profile",
+          "28": "Chat",
+          "29": "Description",
+          "30": "Rating",
         }
       };
 }

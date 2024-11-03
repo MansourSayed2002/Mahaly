@@ -5,7 +5,7 @@ class Sharedpre {
   static Myservices myservices = Get.find();
 
   static setString(key, val) {
-    myservices.sharedpre.setString(key, val);
+    myservices.sharedpre.setString(key, val.toString());
   }
 
   static getString(key) {

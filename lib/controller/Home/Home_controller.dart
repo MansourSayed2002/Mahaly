@@ -1,14 +1,14 @@
-import 'package:flutter_advanced_drawer/flutter_advanced_drawer.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 abstract class AbsHomecontroller extends GetxController {
-  late AdvancedDrawerController advancedDrawerController;
+  late TextEditingController search;
 }
 
 class HomeController extends AbsHomecontroller {
   @override
   void onInit() {
-    advancedDrawerController = AdvancedDrawerController();
+    search = TextEditingController();
     super.onInit();
   }
 }

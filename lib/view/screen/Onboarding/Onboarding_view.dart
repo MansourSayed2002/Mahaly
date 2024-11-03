@@ -25,7 +25,7 @@ class Onboarding_view extends StatelessWidget {
         const Custom_animatedController(),
         Custom_buttomPublic(
           title: "6".tr,
-          color: ColorApp.second,
+          color: ColorApp.sixth,
           colortext: ColorApp.thierd,
           ontap: () {
             controller.next();

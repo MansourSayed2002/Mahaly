@@ -29,6 +29,7 @@ class CongratulationView extends StatelessWidget {
           Custom_buttomPublic(
             title: 'Go To Register',
             color: ColorApp.second,
+            colortext: ColorApp.thierd,
             ontap: () {
               Get.offAll(() => const Register_view(),
                   transition: Transition.rightToLeft,

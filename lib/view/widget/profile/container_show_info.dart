@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mahaly/core/constant/Textstyle/Textstyle.dart';
-import 'package:mahaly/core/constant/theme/Color/ColorApp.dart';
 
 class ContainerShowInfo extends StatelessWidget {
   const ContainerShowInfo({
@@ -19,11 +17,11 @@ class ContainerShowInfo extends StatelessWidget {
         leading: Icon(
           icon,
           size: 30.0.r,
-          color: ColorApp.sixth,
+          color: Theme.of(context).iconTheme.color,
         ),
         title: Text(
           title,
-          style: Textstyledynamic.white20Bold,
+          style: Theme.of(context).textTheme.titleMedium,
         ),
       ),
     );

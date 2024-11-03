@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mahaly/core/constant/theme/Color/ColorApp.dart';
+import 'package:mahaly/core/constant/theme/Textstyle/Textstyle.dart';
 
 class Custom_bottonINKGlobal extends StatelessWidget {
   const Custom_bottonINKGlobal({
@@ -23,18 +22,12 @@ class Custom_bottonINKGlobal extends StatelessWidget {
           onTap: ontap,
           child: Text(
             title,
-            style: TextStyle(
-              fontSize: 18.0.sp,
-              color: ColorApp.second,
-            ),
+            style: Textstyledynamic.second18,
           ),
         ),
         Text(
           body,
-          style: TextStyle(
-            fontSize: 15.0.sp,
-            color: ColorApp.thierd,
-          ),
+          style: Textstyledynamic.black18normal,
         ),
       ],
     );
