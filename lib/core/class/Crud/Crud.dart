@@ -17,7 +17,7 @@ class Crud {
         return ApiResult.failure(responsebody, StatusRequest.failure);
       }
     } catch (e) {
-      return ApiResult.failure(e, StatusRequest.serverException);
+      return ApiResult.failure({"exeption": e}, StatusRequest.serverException);
     }
   }
 

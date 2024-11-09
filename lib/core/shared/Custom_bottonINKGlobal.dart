@@ -27,7 +27,7 @@ class Custom_bottonINKGlobal extends StatelessWidget {
         ),
         Text(
           body,
-          style: Textstyledynamic.black18normal,
+          style: Textstyledynamic.white16Blod,
         ),
       ],
     );

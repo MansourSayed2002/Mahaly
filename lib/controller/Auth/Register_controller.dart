@@ -74,7 +74,6 @@ class Register_Controller extends Abst_Register_Controller {
     } else {
       ApiError apiError = response;
       if (apiError.message == 'Please Approve Your Email') {
-        addInfoInLocalStorage(response);
         gotoverifycode();
       } else {
         Get.defaultDialog(

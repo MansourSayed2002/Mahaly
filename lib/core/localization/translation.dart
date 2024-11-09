@@ -36,6 +36,18 @@ class Mytranslation extends Translations {
           "28": "الرسائل",
           "29": "الوصف",
           "30": "التقيم",
+          "31": "اضافه المنتج",
+          "32": "الاسم",
+          "33": "الخصم",
+          "34": "العدد",
+          "35": "السعر",
+          "36": "المنتجات",
+          "37": "الاقسام",
+          "38": "المعلومات",
+          "39": "الطلبات",
+          "40": "خروج",
+          "41": "تغير الصوره",
+          "42": "اضافه صوره",
         },
         "en": {
           "1":
@@ -72,6 +84,18 @@ class Mytranslation extends Translations {
           "28": "Chat",
           "29": "Description",
           "30": "Rating",
+          "31": "Add Product",
+          "32": "Title",
+          "33": "discount",
+          "34": "Count",
+          "35": "Price",
+          "36": "Product",
+          "37": "Category",
+          "38": "Information",
+          "39": "Order",
+          "40": "Log out",
+          "41": "Change Image",
+          "42": "Add Image",
         }
       };
 }

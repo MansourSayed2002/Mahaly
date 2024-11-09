@@ -35,7 +35,15 @@ class Applink {
 
   static const String editinfo = '$serverlink/profile/editinfo.php';
 
-//=============================Store==========================================
+//=============================Store============================================
 
   static const String createstore = '$serverlink/store/createstore.php';
+
+//=============================PRODUCT==========================================
+
+  static const String addproduct = '$serverlink/product/add.php';
+
+  static const String addimage = '$serverlink/product/addimage.php';
+
+  static const String viewproduct = '$serverlink/product/view.php';
 }

@@ -8,11 +8,10 @@ class Custom_appBar extends StatelessWidget {
   const Custom_appBar({
     super.key,
     required this.namestore,
-    required this.ontapchangephoto,
     required this.image,
   });
   final String namestore;
-  final VoidCallback ontapchangephoto;
+
   final String image;
   @override
   Widget build(BuildContext context) {

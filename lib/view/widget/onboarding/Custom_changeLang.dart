@@ -19,7 +19,7 @@ class Custom_changeLang extends GetView<MyLocalization> {
           PopupMenuButton(
             child: Container(
               margin: EdgeInsets.all(5.0.r),
-              width: 100.0.w,
+              width: 120.0.w,
               height: 30.0.h,
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20.0.r),

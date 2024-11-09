@@ -13,7 +13,7 @@ abstract class AbstCreateStoreController extends GetxController {
   late TextEditingController name;
   late TextEditingController description;
   createStore();
-  addInfoInLocalStorage();
+  addInfoInLocalStorage(response);
 }
 
 class CreateStoreController extends AbstCreateStoreController {
@@ -39,19 +39,20 @@ class CreateStoreController extends AbstCreateStoreController {
     statusRequest = handlingData(response);
     if (statusRequest == StatusRequest.success) {
       Sharedpre.setString('store_active', '1');
-      addInfoInLocalStorage();
+      addInfoInLocalStorage(response['data']);
       Get.back();
       Get.put(StoreController()).update();
     }
   }
 
   @override
-  addInfoInLocalStorage() {
-    Sharedpre.setString('store_name', name.text);
-    Sharedpre.setString('store_description', description.text);
-    Sharedpre.setString('store_image', "");
-    DateTime dateTime = DateTime.now();
-    Sharedpre.setString("store_date", dateTime.toString().split(" ").first);
+  addInfoInLocalStorage(response) {
+    Sharedpre.setString('store_id', response['store_id']);
+    Sharedpre.setString('store_name', response['store_name']);
+    Sharedpre.setString('store_description', response['store_discription']);
+    // Sharedpre.setString('store_image', "");
+    Sharedpre.setString(
+        "store_date", response['store_timestamp'].toString().split(" ").first);
     Sharedpre.setString('first', '1');
   }
 }

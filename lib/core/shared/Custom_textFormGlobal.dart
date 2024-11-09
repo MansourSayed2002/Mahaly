@@ -18,6 +18,7 @@ class Custom_textFormGlobal extends StatelessWidget {
     this.filled,
     this.maxLines,
     this.contentpanding,
+    this.keyboardtype,
   });
   final String label;
   final String? hint;
@@ -31,6 +32,7 @@ class Custom_textFormGlobal extends StatelessWidget {
   final bool? filled;
   final Color? fillColor;
   final int? maxLines;
+  final TextInputType? keyboardtype;
   final EdgeInsetsGeometry? contentpanding;
   @override
   Widget build(BuildContext context) {
@@ -40,6 +42,7 @@ class Custom_textFormGlobal extends StatelessWidget {
         maxLines: maxLines,
         validator: validator,
         controller: controllerForm,
+        keyboardType: keyboardtype,
         style: TextStyle(
           color: fillColor ?? ColorApp.thierd,
           fontSize: 20.0.sp,

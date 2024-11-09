@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:mahaly/controller/Store/store_controller.dart';
+import 'package:mahaly/core/class/sharedpre.dart';
 import 'package:mahaly/core/constant/image/imageapp.dart';
 import 'package:mahaly/core/constant/theme/Color/ColorApp.dart';
 import 'package:mahaly/view/widget/Store/Custom_appBar.dart';
@@ -19,9 +20,8 @@ class StoreOpen extends StatelessWidget {
             MediaQuery.of(context).size.height / 3.h,
           ),
           child: Custom_appBar(
-            namestore: 'Name Store',
+            namestore: "${Sharedpre.getString('store_name')}".capitalizeFirst!,
             image: ImageApp.logo,
-            ontapchangephoto: () {},
           )),
       body: const CsutomBodyOpenStore(),
     );
@@ -41,25 +41,25 @@ class CsutomBodyOpenStore extends GetView<StoreController> {
       children: [
         CustomManageStore(
           image: "assets/images/category.png",
-          title: "Categores",
+          title: "37".tr,
           color: ColorApp.primary,
           ontap: () {},
         ),
         CustomManageStore(
           image: "assets/images/product.png",
-          title: "Items",
+          title: "36".tr,
           color: ColorApp.sixth,
-          ontap: () {},
+          ontap: controller.gotoProductview,
         ),
         CustomManageStore(
           image: "assets/images/orders.png",
-          title: "Orders",
+          title: "39".tr,
           color: ColorApp.second,
           ontap: () {},
         ),
         CustomManageStore(
           image: "assets/images/inforamtion.png",
-          title: "Information",
+          title: "38".tr,
           color: ColorApp.fifth,
           ontap: controller.gotoStoreInfoPage,
         ),

@@ -40,7 +40,7 @@ class CustomBody extends GetView<ProfileController> {
                 image: Sharedpre.getString('user_image'),
                 ontapchangeimage: () {
                   Get.rawSnackbar(
-                    title: 'Change Image',
+                    title: '41'.tr,
                     backgroundColor: ColorApp.primary,
                     duration: const Duration(seconds: 5),
                     messageText: SnackbarChangeImage(
@@ -69,7 +69,7 @@ class CustomBody extends GetView<ProfileController> {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 50.0),
               child: Custom_buttomPublic(
-                title: 'Edit',
+                title: '21'.tr,
                 color: Theme.of(context).primaryColor,
                 colortext: ColorApp.thierd,
                 ontap: () {
@@ -78,7 +78,7 @@ class CustomBody extends GetView<ProfileController> {
               ),
             ),
             ProfileMenuWidget(
-              title: 'Setting',
+              title: '26'.tr,
               iconDataleading: Icons.settings_outlined,
               iconDatatrailing: changeWidgetaccordingtoLang(
                 Icons.arrow_forward_ios_outlined,
@@ -89,7 +89,7 @@ class CustomBody extends GetView<ProfileController> {
               },
             ),
             ProfileMenuWidget(
-              title: 'Into',
+              title: '38'.tr,
               iconDataleading: Icons.info_outline,
               iconDatatrailing: changeWidgetaccordingtoLang(
                 Icons.arrow_forward_ios_outlined,
@@ -100,7 +100,7 @@ class CustomBody extends GetView<ProfileController> {
               },
             ),
             ProfileMenuWidget(
-              title: 'Log out',
+              title: '40'.tr,
               iconDataleading: Icons.logout_outlined,
               iconDatatrailing: Icons.logout_outlined,
               ontap: () {
