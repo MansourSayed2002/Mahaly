@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:mahaly/core/constant/image/imageapp.dart';
-import 'package:mahaly/core/constant/theme/Color/ColorApp.dart';
 import 'package:mahaly/core/constant/theme/Textstyle/Textstyle.dart';
 
 class Choosecategory extends StatelessWidget {
@@ -13,35 +13,35 @@ class Choosecategory extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: MediaQuery.of(context).size.width,
-      height: 125.0.h,
+      height: 130.0.h,
       child: ListView(
         scrollDirection: Axis.horizontal,
         padding: EdgeInsets.all(10.0.r),
         physics: const BouncingScrollPhysics(),
-        children: const [
+        children: [
           CustomItemScrollProduct(
             image: ImageApp.clothes,
-            title: 'Clothes',
+            title: '46'.tr,
           ),
           CustomItemScrollProduct(
             image: ImageApp.sneaker,
-            title: "Sneaker",
+            title: "47".tr,
           ),
           CustomItemScrollProduct(
             image: ImageApp.mobile,
-            title: "Mobile",
+            title: "48".tr,
           ),
           CustomItemScrollProduct(
             image: ImageApp.laptop,
-            title: "Lap top",
+            title: "49".tr,
           ),
           CustomItemScrollProduct(
             image: ImageApp.futniture,
-            title: "Furniture",
+            title: "50".tr,
           ),
           CustomItemScrollProduct(
             image: ImageApp.washingmachine,
-            title: "Devices",
+            title: "51".tr,
           ),
         ],
       ),
@@ -69,7 +69,7 @@ class CustomItemScrollProduct extends StatelessWidget {
           padding: EdgeInsets.all(5.0.r),
           decoration: BoxDecoration(
             border: Border.all(
-              color: ColorApp.sixth,
+              color: Theme.of(context).iconTheme.color!,
               width: 4.0.w,
             ),
             shape: BoxShape.circle,

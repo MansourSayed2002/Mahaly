@@ -3,7 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:mahaly/controller/Home/homescreen_controller.dart';
 import 'package:mahaly/core/constant/theme/Color/ColorApp.dart';
-import 'package:mahaly/core/constant/theme/Textstyle/Textstyle.dart';
 
 class CustomBottomNavigationBar extends StatelessWidget {
   const CustomBottomNavigationBar({
@@ -24,39 +23,47 @@ class CustomBottomNavigationBar extends StatelessWidget {
         width: MediaQuery.of(context).size.width,
         height: 60.0.h,
         child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             CustombottomItemBar(
               onTap: () {
                 controller.changeindex(0);
               },
-              iconData: Icons.home_outlined,
-              text: '24'.tr,
+              iconData: Icons.home,
+              iconDataoutlind: Icons.home_outlined,
               index: 0,
             ),
             CustombottomItemBar(
               onTap: () {
                 controller.changeindex(1);
               },
-              iconData: Icons.store_outlined,
-              text: '25'.tr,
+              iconData: Icons.store,
+              iconDataoutlind: Icons.store_outlined,
               index: 1,
             ),
             CustombottomItemBar(
               onTap: () {
                 controller.changeindex(2);
               },
-              iconData: Icons.chat_outlined,
-              text: '28'.tr,
+              iconData: Icons.favorite,
+              iconDataoutlind: Icons.favorite_border_outlined,
               index: 2,
             ),
             CustombottomItemBar(
               onTap: () {
                 controller.changeindex(3);
               },
-              iconData: Icons.person_2_outlined,
-              text: '27'.tr,
+              iconData: Icons.chat,
+              iconDataoutlind: Icons.chat_outlined,
               index: 3,
             ),
+            CustombottomItemBar(
+                onTap: () {
+                  controller.changeindex(4);
+                },
+                iconData: Icons.person_2,
+                iconDataoutlind: Icons.person_2_outlined,
+                index: 4),
           ],
         ),
       ),
@@ -68,45 +75,22 @@ class CustombottomItemBar extends GetView<HomescreenController> {
   const CustombottomItemBar({
     super.key,
     required this.iconData,
-    required this.text,
+    required this.iconDataoutlind,
     required this.index,
     required this.onTap,
   });
+  final IconData iconDataoutlind;
   final IconData iconData;
-  final String text;
   final int index;
   final void Function()? onTap;
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: InkWell(
-        onTap: onTap,
-        child: AnimatedContainer(
-          height: 40.0.h,
-          width: controller.currentindex == index ? 90.0.w : 10.0.w,
-          alignment: Alignment.center,
-          padding: EdgeInsets.all(5.0.r),
-          decoration: BoxDecoration(
-              color: controller.currentindex == index ? ColorApp.primary : null,
-              borderRadius: BorderRadius.circular(20.0.r)),
-          duration: const Duration(milliseconds: 300),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Icon(
-                iconData,
-                color: Theme.of(context).iconTheme.color,
-              ),
-              controller.currentindex == index
-                  ? Text(
-                      text,
-                      style: Textstyledynamic.white16Blod
-                          .copyWith(fontSize: 14.0.sp),
-                    )
-                  : const SizedBox(),
-            ],
-          ),
-        ),
+    return InkWell(
+      onTap: onTap,
+      child: Icon(
+        controller.currentindex == index ? iconData : iconDataoutlind,
+        color: Theme.of(context).iconTheme.color,
+        size: 26.0.r,
       ),
     );
   }

@@ -7,9 +7,10 @@ import 'package:mahaly/core/class/sharedpre.dart';
 import 'package:mahaly/core/constant/StatusRequest/StatusRequest.dart';
 import 'package:mahaly/core/function/handlingData.dart';
 import 'package:mahaly/data/Source/remote/profile/uploadimage.dart';
+import 'package:mahaly/view/screen/Auth/SignUp_view.dart';
 import 'package:mahaly/view/screen/Profile/edit_info_view.dart';
 import 'package:mahaly/view/screen/Profile/info_profile.dart';
-import 'package:mahaly/view/screen/Profile/setting_profile.dart';
+import 'package:mahaly/view/screen/setting/setting_view.dart';
 
 abstract class AbsProfileController extends GetxController {
   File? file;
@@ -37,7 +38,7 @@ class ProfileController extends AbsProfileController {
   @override
   gotosettingpage() {
     Get.to(
-      () => const SettingProfileView(),
+      () => const SettingView(),
       transition: Transition.leftToRight,
       duration: const Duration(milliseconds: 300),
     );
@@ -89,5 +90,6 @@ class ProfileController extends AbsProfileController {
   @override
   logout() {
     Sharedpre.myservices.sharedpre.clear();
+    Get.offAll(() => const Signup_view());
   }
 }

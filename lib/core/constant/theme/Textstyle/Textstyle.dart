@@ -28,6 +28,11 @@ class Textstyledynamic {
     color: Colors.black,
     fontWeight: FontWeight.normal,
   );
+  static TextStyle black10normal = TextStyle(
+    fontSize: 12.0.sp,
+    color: Colors.black,
+    fontWeight: FontWeight.normal,
+  );
   static TextStyle black20Bold = TextStyle(
     color: Colors.black,
     fontSize: 20.0.sp,

@@ -6,6 +6,10 @@ class Applink {
 
   static const String dirImageProfile = "$serverlink/Upload/profile_image";
 
+  static const String dirImageProduct = "$serverlink/Upload/product_image";
+
+  static const String dirImagestore = "$serverlink/Upload/store_image";
+
 //=============================AUTH=============================================
 
   static const String signup = '$serverlink/Auth/signup.php';
@@ -39,11 +43,29 @@ class Applink {
 
   static const String createstore = '$serverlink/store/createstore.php';
 
-//=============================PRODUCT==========================================
+  static const String editimagestore = '$serverlink/store/editimage.php';
 
-  static const String addproduct = '$serverlink/product/add.php';
+//=============================PRODUCT OF ADMIN=================================
 
-  static const String addimage = '$serverlink/product/addimage.php';
+  static const String addproduct = '$serverlink/admin/product/add.php';
 
-  static const String viewproduct = '$serverlink/product/view.php';
+  static const String addimage = '$serverlink/admin/product/addimage.php';
+
+  static const String viewproduct = '$serverlink/admin/product/view.php';
+
+  static const String productimage =
+      '$serverlink/admin/product/productimage.php';
+
+  static const String removeimage = '$serverlink/admin/product/removeimage.php';
+//=============================CATEGORES========================================
+
+  static const String addcat = '$serverlink/admin/categores/add.php';
+
+  static const String deletecat = '$serverlink/admin/categores/delete.php';
+
+  static const String viewcat = '$serverlink/admin/categores/view.php';
+
+//=============================Items============================================
+
+  static const String getitems = '$serverlink/items/view.php';
 }

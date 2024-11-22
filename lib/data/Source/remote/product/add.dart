@@ -5,8 +5,8 @@ class ContAddProduct {
   ContAddProduct(this.crud);
   late Crud crud;
 
-  insertproduct(
-      title, price, discount, count, description, idstore, List images) async {
+  insertproduct(title, price, discount, count, description, idstore, cat,
+      List images) async {
     var idproduct = await crud.postData(
       Applink.addproduct,
       {
@@ -16,9 +16,10 @@ class ContAddProduct {
         "product_count": count,
         "product_description": description,
         "store_id": idstore,
+        "product_category": cat.toString(),
       },
     );
-    if (idproduct['status'] == 'success' && images.isNotEmpty) {
+    if (idproduct['status'] == 'success') {
       var response;
       for (var i = 0; i < images.length; i++) {
         response = await crud.uploadfile(
@@ -29,8 +30,6 @@ class ContAddProduct {
             images[i]);
       }
       return response;
-    } else {
-      return idproduct['status'];
     }
   }
 }

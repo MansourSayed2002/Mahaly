@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:mahaly/core/constant/theme/Color/ColorApp.dart';
+import 'package:mahaly/core/constant/theme/Textstyle/Textstyle.dart';
 import 'package:mahaly/core/localization/localization.dart';
 
 class Custom_changeLang extends GetView<MyLocalization> {
@@ -20,8 +21,9 @@ class Custom_changeLang extends GetView<MyLocalization> {
             child: Container(
               margin: EdgeInsets.all(5.0.r),
               width: 120.0.w,
-              height: 30.0.h,
+              height: 40.0.h,
               decoration: BoxDecoration(
+                  color: Colors.amber,
                   borderRadius: BorderRadius.circular(20.0.r),
                   border: Border.all(color: ColorApp.primary, width: 2.0.w)),
               child: Row(
@@ -29,9 +31,12 @@ class Custom_changeLang extends GetView<MyLocalization> {
                   Icon(
                     Icons.language_outlined,
                     color: ColorApp.primary,
-                    size: 25.0.r,
+                    size: 25.0.w,
                   ),
-                  const Text('Language')
+                  Text(
+                    'Language',
+                    style: Textstyledynamic.black18normal,
+                  )
                 ],
               ),
             ),

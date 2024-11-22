@@ -6,7 +6,8 @@ import 'package:mahaly/core/function/handlingData.dart';
 import 'package:mahaly/data/Source/remote/store/store.dart';
 import 'package:mahaly/view/screen/Store/create_store.dart';
 import 'package:mahaly/view/screen/Store/information/information_view.dart';
-import 'package:mahaly/view/screen/Store/product/product_view.dart';
+import 'package:mahaly/view/screen/Store/product/products_of_admin_view.dart';
+import 'package:mahaly/view/screen/categores/categores_view.dart';
 
 abstract class AbstStoreController extends GetxController {
   StatusRequest statusRequest = StatusRequest.none;
@@ -15,6 +16,7 @@ abstract class AbstStoreController extends GetxController {
   gotoStoreInfoPage();
   goToCreateStorePage();
   gotoProductview();
+  gotoCategores();
 }
 
 class StoreController extends AbstStoreController {
@@ -61,7 +63,16 @@ class StoreController extends AbstStoreController {
   @override
   gotoProductview() {
     Get.to(
-      () => const ProductView(),
+      () => const ProductOfAdminView(),
+      transition: Transition.leftToRight,
+      duration: const Duration(milliseconds: 300),
+    );
+  }
+
+  @override
+  gotoCategores() {
+    Get.to(
+      () => const CategoresView(),
       transition: Transition.leftToRight,
       duration: const Duration(milliseconds: 300),
     );

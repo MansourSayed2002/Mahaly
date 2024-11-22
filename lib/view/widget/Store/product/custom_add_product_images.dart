@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:get/get_state_manager/get_state_manager.dart';
-import 'package:get/get_state_manager/src/simple/get_view.dart';
-import 'package:mahaly/controller/product/add_product_controller.dart';
+import 'package:mahaly/controller/productofowner/add_product_controller.dart';
 import 'package:mahaly/core/constant/theme/Color/ColorApp.dart';
 import 'package:mahaly/view/widget/profile/snackbar_change_image.dart';
 

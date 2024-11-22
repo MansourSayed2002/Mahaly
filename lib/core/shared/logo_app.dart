@@ -29,7 +29,7 @@ class LogoApp extends StatelessWidget {
               style: TextStyle(
                 fontSize: 35.0.sp,
                 fontWeight: FontWeight.bold,
-                color: Theme.of(context).iconTheme.color,
+                color: ColorApp.sixth,
               ),
             ),
           ),

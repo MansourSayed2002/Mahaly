@@ -20,7 +20,7 @@ class ButtonDialog extends StatelessWidget {
     return InkWell(
       onTap: ontap,
       child: Container(
-        width: 100.0,
+        width: 100.0.h,
         alignment: Alignment.center,
         padding: EdgeInsets.all(10.0.r),
         decoration: BoxDecoration(

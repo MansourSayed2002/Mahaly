@@ -6,6 +6,8 @@ import 'package:mahaly/core/class/Crud/Crud.dart';
 import 'package:mahaly/core/class/sharedpre.dart';
 import 'package:mahaly/core/constant/StatusRequest/StatusRequest.dart';
 import 'package:mahaly/core/function/handlingData.dart';
+import 'package:mahaly/data/Model/categores_model.dart';
+import 'package:mahaly/data/Source/remote/categores/categores.dart';
 import 'package:mahaly/data/Source/remote/product/add.dart';
 
 abstract class AbsAddProductController extends GetxController {
@@ -16,9 +18,13 @@ abstract class AbsAddProductController extends GetxController {
   late TextEditingController discount;
   late TextEditingController price;
   late GlobalKey<FormState> formstate;
+  int cat = 0;
+  List<CategoresModel> categores = [];
   ContAddProduct contAddProduct = ContAddProduct(Crud());
+  ContCategores contCategores = ContCategores(Crud());
   StatusRequest statusRequest = StatusRequest.none;
   opencamera();
+  getcat();
   onpengallery();
   uploadproduct();
 }
@@ -32,6 +38,7 @@ class AddProductController extends AbsAddProductController {
     discount = TextEditingController();
     price = TextEditingController();
     formstate = GlobalKey<FormState>();
+    getcat();
     super.onInit();
   }
 
@@ -77,20 +84,40 @@ class AddProductController extends AbsAddProductController {
   }
 
   @override
-  uploadproduct() async {
+  getcat() async {
+    categores.clear();
     statusRequest = StatusRequest.loading;
-    var response = await contAddProduct.insertproduct(
-        title.text,
-        price.text,
-        discount.text,
-        count.text,
-        description.text,
-        Sharedpre.getString('store_id'),
-        images);
+    var response = await contCategores.getcat(Sharedpre.getString('user_id'));
     statusRequest = handlingData(response);
     if (statusRequest == StatusRequest.success) {
-      Get.back();
-      Get.snackbar("Done", "Pictures have been added");
+      List data = response['data'];
+      categores.addAll(data.map((e) => CategoresModel.fromJson(e)));
+    }
+    update();
+  }
+
+  @override
+  uploadproduct() async {
+    statusRequest = StatusRequest.loading;
+    if (images.isNotEmpty && cat != 0) {
+      var response = await contAddProduct.insertproduct(
+          title.text,
+          price.text,
+          discount.text,
+          count.text,
+          description.text,
+          Sharedpre.getString('store_id'),
+          cat,
+          images);
+      statusRequest = handlingData(response);
+      if (statusRequest == StatusRequest.success) {
+        Get.back();
+        Get.snackbar(
+          "Done",
+          "Product have been added",
+          colorText: Colors.black,
+        );
+      }
     }
   }
 }

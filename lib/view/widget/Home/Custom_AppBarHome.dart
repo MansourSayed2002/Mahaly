@@ -9,8 +9,8 @@ import 'package:mahaly/core/shared/logo_app.dart';
 import 'package:mahaly/view/widget/Home/choose_product.dart';
 import 'package:mahaly/view/widget/Home/field_search.dart';
 
-class Custom_AppBarHome extends GetView<HomeController> {
-  const Custom_AppBarHome({
+class CustomAppBarHome extends GetView<HomeController> {
+  const CustomAppBarHome({
     super.key,
   });
 
@@ -26,7 +26,7 @@ class Custom_AppBarHome extends GetView<HomeController> {
           )),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.end,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
             children: [
@@ -47,13 +47,12 @@ class Custom_AppBarHome extends GetView<HomeController> {
             ],
           ),
           Text(
-            "Find cool product fit\n your style",
+            "44".tr,
             style: Textstyledynamic.white20Bold.copyWith(fontSize: 23.0.sp),
-            textAlign: TextAlign.left,
           ),
           heightsizedBox(10.0),
           FieldSearch(
-            hint: "Search a product",
+            hint: "45".tr,
             controllerForm: controller.search,
             onpressed: () {},
           ),

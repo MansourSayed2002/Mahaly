@@ -36,7 +36,7 @@ class FieldSearch extends StatelessWidget {
             fontSize: 15.0.sp,
             color: Colors.black,
           ),
-          contentPadding: EdgeInsets.all(15.0.r),
+          contentPadding: EdgeInsets.all(12.0.r),
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(7.0.r),
           ),

@@ -49,8 +49,8 @@ class CreateStoreController extends AbstCreateStoreController {
   addInfoInLocalStorage(response) {
     Sharedpre.setString('store_id', response['store_id']);
     Sharedpre.setString('store_name', response['store_name']);
-    Sharedpre.setString('store_description', response['store_discription']);
-    // Sharedpre.setString('store_image', "");
+    Sharedpre.setString('store_description', response['store_description']);
+    Sharedpre.setString('store_image', response['store_image']);
     Sharedpre.setString(
         "store_date", response['store_timestamp'].toString().split(" ").first);
     Sharedpre.setString('first', '1');

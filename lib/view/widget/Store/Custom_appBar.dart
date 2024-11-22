@@ -9,9 +9,10 @@ class Custom_appBar extends StatelessWidget {
     super.key,
     required this.namestore,
     required this.image,
+    required this.dir,
   });
   final String namestore;
-
+  final String dir;
   final String image;
   @override
   Widget build(BuildContext context) {
@@ -24,7 +25,8 @@ class Custom_appBar extends StatelessWidget {
             bottomLeft: Radius.circular(15.0.r),
             bottomRight: Radius.circular(15.0.r),
           ),
-          image: DecorationImage(image: AssetImage(image), fit: BoxFit.cover),
+          image: DecorationImage(
+              image: NetworkImage("$dir/$image"), fit: BoxFit.cover),
         ),
         child: Padding(
           padding: EdgeInsets.all(8.0.r),

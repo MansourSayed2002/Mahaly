@@ -1,16 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:mahaly/controller/Store/information/information_controller.dart';
 import 'package:mahaly/core/class/sharedpre.dart';
-import 'package:mahaly/core/constant/image/imageapp.dart';
+import 'package:mahaly/core/constant/Links/Links.dart';
+import 'package:mahaly/core/constant/theme/Color/ColorApp.dart';
 import 'package:mahaly/core/shared/button_appbar_back.dart';
 import 'package:mahaly/view/widget/profile/container_show_info.dart';
+import 'package:mahaly/view/widget/profile/custom_image_profile.dart';
+import 'package:mahaly/view/widget/profile/snackbar_change_image.dart';
 
 class InformationView extends StatelessWidget {
   const InformationView({super.key});
 
   @override
   Widget build(BuildContext context) {
+    Get.put(InformationController());
     return Scaffold(
       appBar: AppBar(
         elevation: 0.0,
@@ -35,17 +39,27 @@ class CustomBody extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          CircleAvatar(
-            radius: 80.0.r,
-            backgroundImage: const AssetImage(ImageApp.logo),
-            child: IconButton(
-                onPressed: () {},
-                icon: Icon(
-                  Icons.camera_alt_outlined,
-                  size: 60.0.r,
-                  color: Colors.white,
-                )),
-          ),
+          GetBuilder<InformationController>(builder: (controller) {
+            return CustomImageProfile(
+              dir: "${Applink.dirImagestore}/",
+              image: "${Sharedpre.getString('store_image')}",
+              ontapchangeimage: () {
+                Get.rawSnackbar(
+                  title: '41'.tr,
+                  backgroundColor: ColorApp.primary,
+                  duration: const Duration(seconds: 5),
+                  messageText: SnackbarChangeImage(
+                    ontapcamera: () async {
+                      await controller.opencamera();
+                    },
+                    ontapgallery: () async {
+                      await controller.onpengallery();
+                    },
+                  ),
+                );
+              },
+            );
+          }),
           ContainerShowInfo(
             icon: Icons.abc_outlined,
             title: "${"11".tr}:${Sharedpre.getString('store_name')}",

@@ -19,6 +19,8 @@ class Custom_textFormGlobal extends StatelessWidget {
     this.maxLines,
     this.contentpanding,
     this.keyboardtype,
+    this.textcolor,
+    this.cursorColor,
   });
   final String label;
   final String? hint;
@@ -31,6 +33,9 @@ class Custom_textFormGlobal extends StatelessWidget {
   final Color? hintColor;
   final bool? filled;
   final Color? fillColor;
+  final Color? cursorColor;
+  final Color? textcolor;
+
   final int? maxLines;
   final TextInputType? keyboardtype;
   final EdgeInsetsGeometry? contentpanding;
@@ -44,13 +49,13 @@ class Custom_textFormGlobal extends StatelessWidget {
         controller: controllerForm,
         keyboardType: keyboardtype,
         style: TextStyle(
-          color: fillColor ?? ColorApp.thierd,
+          color: textcolor ?? ColorApp.thierd,
           fontSize: 20.0.sp,
         ),
-        cursorColor: ColorApp.thierd,
+        cursorColor: cursorColor ?? ColorApp.thierd,
         obscureText: obscureText,
         decoration: InputDecoration(
-            fillColor: ColorApp.thierd,
+            fillColor: fillColor,
             floatingLabelBehavior: FloatingLabelBehavior.always,
             label: Text(label),
             suffixIcon: suffixicon,
@@ -63,6 +68,7 @@ class Custom_textFormGlobal extends StatelessWidget {
             labelStyle: TextStyle(
               color: labelcolor ?? ColorApp.second,
               fontSize: 20.0.sp,
+              fontWeight: FontWeight.bold,
             ),
             contentPadding: contentpanding ?? EdgeInsets.all(10.0.r),
             focusedBorder: OutlineInputBorder(

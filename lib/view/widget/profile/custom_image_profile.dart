@@ -1,17 +1,18 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mahaly/core/constant/Links/Links.dart';
 import 'package:mahaly/core/constant/theme/Color/ColorApp.dart';
 
 class CustomImageProfile extends StatelessWidget {
   const CustomImageProfile({
     super.key,
     this.image,
+    this.dir,
     required this.ontapchangeimage,
   });
 
   final String? image;
+  final String? dir;
   final VoidCallback ontapchangeimage;
   @override
   Widget build(BuildContext context) {
@@ -21,8 +22,7 @@ class CustomImageProfile extends StatelessWidget {
             ? CircleAvatar(
                 radius: 80.0.r,
                 backgroundColor: ColorApp.fourth,
-                backgroundImage:
-                    NetworkImage("${Applink.dirImageProfile}/$image"))
+                backgroundImage: NetworkImage("$dir/$image"))
             : CircleAvatar(
                 radius: 80.0.r,
                 backgroundColor: ColorApp.fourth,
