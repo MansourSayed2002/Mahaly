@@ -14,7 +14,7 @@ class Custom_OnboardingExplane extends GetView<Onboarding_controller> {
     return Container(
         margin: EdgeInsets.only(left: 15.0.r, right: 15.0.r, bottom: 10.0.r),
         width: MediaQuery.of(context).size.width,
-        height: MediaQuery.of(context).size.height / 1.6,
+        height: MediaQuery.of(context).size.height / 1.7,
         child: PageView.builder(
           controller: controller.pagecontroller,
           onPageChanged: (val) {

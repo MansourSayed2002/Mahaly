@@ -23,7 +23,6 @@ class Custom_changeLang extends GetView<MyLocalization> {
               width: 120.0.w,
               height: 40.0.h,
               decoration: BoxDecoration(
-                  color: Colors.amber,
                   borderRadius: BorderRadius.circular(20.0.r),
                   border: Border.all(color: ColorApp.primary, width: 2.0.w)),
               child: Row(
