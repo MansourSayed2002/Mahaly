@@ -24,7 +24,7 @@ class Custom_buttomPublic extends StatelessWidget {
           color: color,
         ),
         width: MediaQuery.of(context).size.width,
-        height: 50.0.h,
+        height: MediaQuery.of(context).size.height / 16,
         padding: EdgeInsets.all(10.0.r),
         margin: EdgeInsets.all(10.0.r),
         child: Text(

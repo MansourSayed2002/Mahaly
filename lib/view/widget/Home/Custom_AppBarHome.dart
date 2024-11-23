@@ -3,66 +3,60 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:mahaly/controller/Home/Home_controller.dart';
 import 'package:mahaly/core/constant/theme/Color/ColorApp.dart';
+import 'package:mahaly/core/constant/theme/Textstyle/Textstyle.dart';
+import 'package:mahaly/core/function/sizedbox.dart';
+import 'package:mahaly/core/shared/logo_app.dart';
+import 'package:mahaly/view/widget/Home/choose_product.dart';
+import 'package:mahaly/view/widget/Home/field_search.dart';
 
-class Custom_AppBarHome extends GetView<HomeController> {
-  const Custom_AppBarHome({
+class CustomAppBarHome extends GetView<HomeController> {
+  const CustomAppBarHome({
     super.key,
   });
 
   @override
   Widget build(BuildContext context) {
     return Container(
+      padding: EdgeInsets.all(10.0.r),
+      decoration: BoxDecoration(
+          color: ColorApp.primary,
+          borderRadius: BorderRadius.only(
+            bottomLeft: Radius.circular(20.0.r),
+            bottomRight: Radius.circular(20.0.r),
+          )),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
+              const LogoApp(),
+              const Spacer(),
               IconButton(
-                  onPressed: () {
-                    controller.advancedDrawerController.showDrawer();
-                  },
-                  icon: ValueListenableBuilder(
-                      valueListenable: controller.advancedDrawerController,
-                      builder: (context, value, child) => AnimatedSwitcher(
-                            duration: const Duration(
-                              milliseconds: 300,
-                            ),
-                            child: Icon(
-                              value.visible ? Icons.clear : Icons.menu,
-                              key: ValueKey<bool>(value.visible),
-                              size: 30.0.r,
-                            ),
-                          ))),
-              Container(
-                margin: EdgeInsets.all(10.0.r),
-                child: Stack(
-                  clipBehavior: Clip.none,
-                  children: [
-                    Text(
-                      'M',
-                      style: TextStyle(
-                        fontSize: 35.0.sp,
-                        color: ColorApp.primary,
-                      ),
-                    ),
-                    Positioned(
-                      left: 20.0.w,
-                      top: 5.0.h,
-                      child: Text(
-                        'y',
-                        style: TextStyle(
-                          fontSize: 35.0.sp,
-                          fontWeight: FontWeight.bold,
-                          color: ColorApp.second,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+                  onPressed: () {},
+                  icon: Icon(
+                    Icons.notifications_active_outlined,
+                    size: 25.0.r,
+                  )),
+              IconButton(
+                  onPressed: () {},
+                  icon: Icon(
+                    Icons.shopping_bag_outlined,
+                    size: 25.0.r,
+                  )),
             ],
-          )
+          ),
+          Text(
+            "44".tr,
+            style: Textstyledynamic.white20Bold.copyWith(fontSize: 23.0.sp),
+          ),
+          heightsizedBox(10.0),
+          FieldSearch(
+            hint: "45".tr,
+            controllerForm: controller.search,
+            onpressed: () {},
+          ),
+          const Choosecategory()
         ],
       ),
     );

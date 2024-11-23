@@ -7,15 +7,16 @@ class Custom_logo extends StatelessWidget {
     required this.image,
     required this.width,
   });
-  final image;
-  final height;
-  final width;
+  final String image;
+  final double height;
+  final double width;
   @override
   Widget build(BuildContext context) {
     return Container(
       width: width,
       height: height,
       decoration: BoxDecoration(
+        shape: BoxShape.circle,
         image: DecorationImage(
           image: AssetImage(image),
           fit: BoxFit.contain,

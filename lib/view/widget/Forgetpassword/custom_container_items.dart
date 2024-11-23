@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:mahaly/controller/Resetpassword/users_controller.dart';
-import 'package:mahaly/core/constant/Textstyle/Textstyle.dart';
+
 import 'package:mahaly/core/constant/theme/Color/ColorApp.dart';
+import 'package:mahaly/core/constant/theme/Textstyle/Textstyle.dart';
 
 class Customcontaineritems extends StatelessWidget {
   const Customcontaineritems({

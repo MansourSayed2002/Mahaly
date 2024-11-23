@@ -6,4 +6,6 @@ class AppRouting {
   static const String register = "/Register_view";
 
   static const String home = "/Home_view";
+
+  static const String homescreen = "/HomeScreenView";
 }

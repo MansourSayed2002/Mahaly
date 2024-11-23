@@ -1,33 +1,34 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mahaly/core/constant/theme/Color/ColorApp.dart';
 
 class Custom_explorePage extends StatelessWidget {
   const Custom_explorePage({
     super.key,
     required this.title,
-    this.body,
+    required this.body,
   });
-  final title;
-  final body;
+  final String title;
+  final String body;
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         Text(
           title,
-          style: const TextStyle(
-            fontSize: 30.0,
+          style: TextStyle(
+            fontSize: 30.0.sp,
             fontWeight: FontWeight.bold,
             color: ColorApp.thierd,
           ),
         ),
-        const SizedBox(
-          height: 10.0,
+        SizedBox(
+          height: 10.0.h,
         ),
         Text(
           body,
-          style: const TextStyle(
-            fontSize: 18.0,
+          style: TextStyle(
+            fontSize: 18.0.sp,
             color: ColorApp.thierd,
           ),
         ),

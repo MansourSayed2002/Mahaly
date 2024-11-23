@@ -80,7 +80,7 @@ class Signup_view extends StatelessWidget {
                 return textformvalidation(3, 100, 'phone', val!);
               },
             ),
-            GetBuilder<Signup_controller>(builder: (context) {
+            GetBuilder<Signup_controller>(builder: (controller) {
               return Custom_textFormGlobal(
                 controllerForm: controller.password,
                 label: "22".tr,

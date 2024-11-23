@@ -7,20 +7,22 @@ class CustomImageProfile extends StatelessWidget {
   const CustomImageProfile({
     super.key,
     this.image,
+    this.dir,
     required this.ontapchangeimage,
   });
 
   final String? image;
+  final String? dir;
   final VoidCallback ontapchangeimage;
   @override
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        image != null
+        image != 'none'
             ? CircleAvatar(
                 radius: 80.0.r,
                 backgroundColor: ColorApp.fourth,
-                backgroundImage: NetworkImage(image!))
+                backgroundImage: NetworkImage("$dir/$image"))
             : CircleAvatar(
                 radius: 80.0.r,
                 backgroundColor: ColorApp.fourth,
@@ -36,7 +38,7 @@ class CustomImageProfile extends StatelessWidget {
             onTap: ontapchangeimage,
             child: Icon(
               CupertinoIcons.pencil_circle_fill,
-              color: Colors.white,
+              color: Theme.of(context).iconTheme.color,
               size: 33.0.r,
             ),
           ),
